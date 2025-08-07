@@ -5,6 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Kata Semangat untuk Kamu</title>
   <style>
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
     body {
       margin: 0;
       padding: 0;
@@ -14,6 +31,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      animation: fadeInUp 1s ease forwards;
     }
 
     .container {
@@ -23,16 +41,20 @@
       border-radius: 15px;
       box-shadow: 0 8px 16px rgba(0,0,0,0.2);
       max-width: 400px;
+      animation: fadeInUp 1s ease forwards;
     }
 
     h1 {
       color: #e91e63;
+      animation: fadeInUp 1s ease forwards;
     }
 
     p {
       font-size: 18px;
       margin: 20px 0;
       color: #333;
+      min-height: 60px;
+      transition: all 0.3s ease-in-out;
     }
 
     button {
@@ -44,10 +66,16 @@
       font-size: 16px;
       cursor: pointer;
       transition: 0.3s;
+      animation: fadeInUp 1.2s ease forwards;
     }
 
     button:hover {
       background-color: #c2185b;
+      transform: scale(1.05);
+    }
+
+    .animated {
+      animation: pulse 0.4s;
     }
   </style>
 </head>
@@ -71,7 +99,13 @@
 
     function tampilkanSemangat() {
       const index = Math.floor(Math.random() * kataSemangat.length);
-      document.getElementById("kataSemangat").innerText = kataSemangat[index];
+      const teks = document.getElementById("kataSemangat");
+      teks.innerText = kataSemangat[index];
+      
+      // Tambah animasi pulse setiap kali diklik
+      teks.classList.remove("animated");
+      void teks.offsetWidth; // trigger reflow
+      teks.classList.add("animated");
     }
   </script>
 </body>
