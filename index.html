@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kata Semangat untuk Kamu</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ffd6e0, #e0f7fa);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      text-align: center;
+      background-color: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      max-width: 400px;
+    }
+
+    h1 {
+      color: #e91e63;
+    }
+
+    p {
+      font-size: 18px;
+      margin: 20px 0;
+      color: #333;
+    }
+
+    button {
+      background-color: #e91e63;
+      color: white;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #c2185b;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Hai Kamu! 😊</h1>
+    <p id="kataSemangat">Klik tombol di bawah untuk mendapatkan semangat 💖</p>
+    <button onclick="tampilkanSemangat()">Tampilkan Semangat</button>
+  </div>
+
+  <script>
+    const kataSemangat = [
+      "Semangat terus ya, kamu hebat! 💪",
+      "Apapun yang terjadi, kamu bisa melalui ini. 🌈",
+      "Jangan menyerah, hal baik sedang menantimu. ✨",
+      "Terus tersenyum, dunia butuh senyummu! 😊",
+      "Satu langkah kecil hari ini, lebih baik dari tidak sama sekali. 🐾",
+      "Kamu berharga dan layak untuk bahagia. ❤️",
+      "Hari ini sulit? Tapi kamu lebih kuat dari rasa lelahmu. 🌻"
+    ];
+
+    function tampilkanSemangat() {
+      const index = Math.floor(Math.random() * kataSemangat.length);
+      document.getElementById("kataSemangat").innerText = kataSemangat[index];
+    }
+  </script>
+</body>
+</html>
